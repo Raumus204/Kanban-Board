@@ -14,6 +14,7 @@ const sequelize = process.env.DB_URL
           rejectUnauthorized: false, // Allows self-signed certificates (Render default setup)
         },
       },
+      logging: console.log, // Enable logging for debugging
     })
   : new Sequelize(process.env.DB_NAME || '', process.env.DB_USER || '', process.env.DB_PASSWORD, {
       host: 'localhost',
@@ -25,6 +26,7 @@ const sequelize = process.env.DB_URL
           rejectUnauthorized: false, // Allows self-signed certificates (Render default setup)
         },
       },
+      logging: console.log, // Enable logging for debugging
     });
 
 const User = UserFactory(sequelize);
